@@ -91,11 +91,15 @@ public class RegisterActivity extends AppCompatActivity {
                                 FirebaseUser mUser = task.getResult().getUser();
                                 mDatabase.child("Users").child(mUser.getUid()).setValue(
                                         new User(
+                                                mAuth.getCurrentUser().getUid(),
                                                 name,
                                                 email,
-                                                name.toLowerCase()
+                                                name.toLowerCase(),
+                                                null
                                         )
                                 );
+                                Intent i = new Intent(RegisterActivity.this, HomeActivity.class);
+                                startActivity(i);
                                 Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                             }else{
                                 Toast.makeText(RegisterActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();

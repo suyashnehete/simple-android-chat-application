@@ -2,14 +2,38 @@ package com.suyash.chatapplication.Model;
 
 public class User {
 
+    String id;
     String name;
     String email;
     String searchName;
+    String profile;
 
-    public User(String name, String email, String searchName) {
+    public User(){
+
+    }
+
+    public User(String id, String name, String email, String searchName, String profile) {
         this.name = name;
         this.email = email;
         this.searchName = searchName;
+        this.id = id;
+        this.profile = profile;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
     }
 
     public String getName() {
