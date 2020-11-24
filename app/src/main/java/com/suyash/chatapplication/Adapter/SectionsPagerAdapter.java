@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.suyash.chatapplication.Fragment.ChatsFragment;
 import com.suyash.chatapplication.Fragment.ProfileFragment;
 import com.suyash.chatapplication.Fragment.UsersFragment;
 import com.suyash.chatapplication.R;
@@ -33,7 +34,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         // Return a PlaceholderFragment (defined as a static inner class below).
         switch (position){
             case 0:
-                return new UsersFragment();
+                return new ChatsFragment();
 
             case 1:
                 return  new UsersFragment();
@@ -41,7 +42,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             case 2:
                 return  new ProfileFragment();
         }
-        return new UsersFragment();
+        return new ChatsFragment();
     }
 
     @Nullable

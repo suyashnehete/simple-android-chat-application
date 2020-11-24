@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.suyash.chatapplication.MessageActivity;
+import com.suyash.chatapplication.Model.ChatList;
 import com.suyash.chatapplication.Model.User;
 import com.suyash.chatapplication.R;
 
@@ -19,12 +20,12 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
+public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.ViewHolder>{
 
-    List<User> users;
+    List<ChatList> users;
     Context context;
 
-    public UsersAdapter(List<User> users, Context context) {
+    public ChatsAdapter(List<ChatList> users, Context context) {
         this.users = users;
         this.context = context;
     }
@@ -44,11 +45,11 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final User user = users.get(position);
+        final ChatList user = users.get(position);
 
         holder.userName.setText(user.getName());
 
-        if (user.getProfile() != null){
+        if (!user.getProfile().equals("")){
             Glide.with(context).load(user.getProfile()).into(holder.profileImage);
         }
 
