@@ -25,9 +25,11 @@ public class MainActivity extends AppCompatActivity {
                 if (mAuth.getCurrentUser() != null){
                     Intent i = new Intent(MainActivity.this, HomeActivity.class);
                     startActivity(i);
+                    finishAffinity();
                 }else{
                     Intent i = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(i);
+                    finishAffinity();
                 }
             }
         }, 2000);

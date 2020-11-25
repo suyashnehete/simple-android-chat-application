@@ -38,6 +38,8 @@ public class LoginActivity extends AppCompatActivity {
         userPassword = findViewById(R.id.user_password);
         loginBtn = findViewById(R.id.login_user);
 
+        getSupportActionBar().setTitle("Login");
+
         mAuth = FirebaseAuth.getInstance();
 
         registerNow.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +54,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 loginUser(userName.getText().toString().trim(), userPassword.getText().toString().trim());
+            }
+        });
+
+        forgetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(LoginActivity.this, ForgetPasswordActivity.class);
+                startActivity(i);
             }
         });
 
@@ -76,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Intent i = new Intent(LoginActivity.this, HomeActivity.class);
                                 startActivity(i);
                                 Toast.makeText(LoginActivity.this, "Login Successfull", Toast.LENGTH_LONG).show();
+                                finishAffinity();
                             }else{
                                 Toast.makeText(LoginActivity.this, "Invalid Email or Password", Toast.LENGTH_LONG).show();
                             }

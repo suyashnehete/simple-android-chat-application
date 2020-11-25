@@ -46,6 +46,8 @@ public class RegisterActivity extends AppCompatActivity {
         userPassword = findViewById(R.id.user_password);
         registerBtn = findViewById(R.id.register_user);
 
+        getSupportActionBar().setTitle("Register");
+
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -101,6 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 Intent i = new Intent(RegisterActivity.this, HomeActivity.class);
                                 startActivity(i);
                                 Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                                finishAffinity();
                             }else{
                                 Toast.makeText(RegisterActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                             }
